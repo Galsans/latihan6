@@ -52,33 +52,39 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(produk $produk)
+    public function edit($id)
     {
         //
-        // return view('produk.edit', compact('produk'));
+        $produk = Produk::find($id);
+        return view('produk.edit', compact('produk'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, produk $produk)
+    public function update(Request $request, $id)
     {
         //
-        $Produk ->validate([
+        $this->validate($request,[
             'namaProduk' => 'required',
             'harga' => 'required',
             'qty' => 'required',
         ]);
-        $Produk->update($request-> all());
+        $produk = Produk::find($id);
+        $produk->namaProduk = $request->input('namaProduk');
+        $produk->harga = $request->input('harga');
+        $produk->qty = $request->input('qty');
+        $produk->save();
         return redirect()->route('produk.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(produk $produk)
+    public function destroy($id)
     {
         //
+        $produk = Produk::find($id);
         $produk->delete();
         return redirect()->route('produk.index');
     }

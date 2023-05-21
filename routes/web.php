@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RanjangController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +18,20 @@ use App\Http\Controllers\ProdukController;
 Route::get('/', function () {
     return view('welcome');
 });
+// FILE PRODUK
 
 Route::get('produk', [ProdukController::class, 'index'])->name('produk.index');
 
 Route::get('produks-create', [ProdukController::class, 'create'])->name('produk.create');
 
-Route::get('produks-edit', [ProdukController::class, 'edit'])->name('produk.edit');
+Route::get('produks-edit/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+
+Route::post('produks-update/{id}', [ProdukController::class,'update'])->name('produk.update');
 
 Route::post('produks-store', [ProdukController::class, 'store'])->name('produk.store');
 
-Route::delete('produks-delete', [ProdukController::class, 'delete'])->name('produk.destroy');
+Route::delete('produks-delete/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+
+
+// FILE RANJANG
+Route::get('ranjang', [RanjangController::class, 'index'])->name('ranjang.index');

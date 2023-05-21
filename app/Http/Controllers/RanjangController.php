@@ -13,6 +13,8 @@ class RanjangController extends Controller
     public function index()
     {
         //
+        $ranjang = Ranjang::all();
+        return view('ranjang.index', compact('ranjang'));
     }
 
     /**
@@ -21,6 +23,7 @@ class RanjangController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**

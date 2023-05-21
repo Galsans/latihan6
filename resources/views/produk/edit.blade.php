@@ -9,23 +9,22 @@
 </head>
 
 <body>
-    @section('content')
-        <form action="{{ route('produk.update') }}" method="POST">
-            <div class="column">
-                <strong>Nama Produk :</strong>
-                <input type="text" value="{{ $produk->namaProduk }}" placeholder="namaProduk">
-            </div>
-            <div class="column">
-                <strong>Harga :</strong>
-                <input type="number" value="{{ $produk->harga }}" placeholder="harga">
-            </div>
-            <div class="column">
-                <strong>Total :</strong>
-                <input type="number" value="{{ $produk->qty }}" placeholder="qty">
-            </div>
-            <button type="submit">SEND</button>
-        </form>
-    @endsection
+    <form action="{{ route('produk.update', $produk->id) }}" method="POST">
+        @csrf
+        <div class="column">
+            <strong>Nama Produk :</strong>
+            <input type="text" name="namaProduk" value="{{ $produk->namaProduk }}">
+        </div>
+        <div class="column">
+            <strong>Harga :</strong>
+            <input type="number" value="{{ $produk->harga }}" name="harga" placeholder="harga">
+        </div>
+        <div class="column">
+            <strong>Total :</strong>
+            <input type="number" value="{{ $produk->qty }}" name="qty" placeholder="qty">
+        </div>
+        <button type="submit">SEND</button>
+    </form>
 </body>
 
 </html>
