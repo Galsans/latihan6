@@ -12,24 +12,24 @@
     <div class="container">
         <h2>Ini Tempat Pengisian Produks</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, eligendi?</p>
-        <a href="{{ route('produk.index') }}"><button>BACK</button></a>
     </div>
     <form action="{{ route('produk.store') }}" method="POST">
         @csrf
         @method('POST')
         <div class="contain">
             <strong>Nama Produk</strong>
-            <input type="text" name="namaProduk" placeholder="masukkan data...">
+            <input type="text" name="namaProduk" placeholder="masukkan data..." required>
         </div>
         <div class="contain">
             <strong>Harga Produk</strong>
-            <input type="number" name="harga" placeholder="masukkan harga...">
+            <input type="number" name="harga" placeholder="masukkan harga..." required>
         </div>
         <div class="contain">
             <strong>Total</strong>
-            <input type="number" name="qty" placeholder="masukkan total...">
+            <input type="number" name="qty" placeholder="masukkan total..." required>
         </div>
         <button type="submit">Kirim</button>
+        <a href="{{ route('produk.index') }}"><button>BACK</button></a>
     </form>
 </body>
 

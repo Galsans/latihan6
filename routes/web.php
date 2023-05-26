@@ -34,4 +34,8 @@ Route::delete('produks-delete/{id}', [ProdukController::class, 'destroy'])->name
 
 
 // FILE RANJANG
-Route::get('ranjang', [RanjangController::class, 'index'])->name('ranjang.index');
+Route::get('ranjang', [RanjangController::class, 'index'])->name('cart.index');
+
+
+// FILE TRANSAKSI
+Route::get('transaksi', [TrxController::class, 'index'])->name('trx.index');
